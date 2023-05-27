@@ -1,5 +1,16 @@
-const container = document.createElement('div');
-container.classList.add('container');
+function genarateElement (tagName, attribute) {
+    const element = document.createElement(tagName);
+
+    if(attribute){
+    Object.keys(attribute).forEach(key => {
+        element.setAttribute(key, attribute[key])
+        })
+    }
+    return element;  
+}
+
+
+const container = genarateElement('div', {class: 'container'});
 
 function generateCart (name, age){
 const cart = document.createElement('div');
@@ -30,3 +41,14 @@ userData.forEach(data =>{
 
 
 document.body.appendChild(container);
+
+
+
+
+
+try {
+    console.loge("aaaaaaaaaaaaaaaaaaaahtfryexhgfcdxhfcrye");
+    
+} catch (error) {
+    console.error("error thrown")
+}
