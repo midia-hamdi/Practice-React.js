@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="cart">
+            <span>name: midia</span>
+            <span>age: 22</span>
+        </div>
+            <div class="cart">
+            <span>name: siawash</span>
+            <span>age: 25</span>
+        </div>
+            <div class="cart">
+            <span>name: farzad</span>
+            <span>age: 16</span>
+        </div>
+    </div>
+
+    <script>
+        const container = document.createElement('div');
+        container.classList.add('container');
+
+        const cart = document.createElement('div');
+        cart.classList.add('cart');
+
+        const name = document.createElement('span');
+        name.innerText = "name: midia";
+
+        const age = document.createElement('span');
+        age.innerText = "age: 22";
+
+        cart.appendChild(name);
+        cart.appendChild(age);
+
+        container.appendChild(cart);
+        document.body.appendChild(container);
+    </script>
+</body>
+</html>
