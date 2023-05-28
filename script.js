@@ -1,4 +1,4 @@
-function genarateElement (tagName, attribute) {
+function generateElement (tagName, attribute, ...childs) {
     const element = document.createElement(tagName);
 
     if(attribute){
@@ -6,24 +6,44 @@ function genarateElement (tagName, attribute) {
         element.setAttribute(key, attribute[key])
         })
     }
+
+    if(childs){
+        childs.forEach(child => {
+            if('string' === typeof child){
+                element.appendChild(document.createTextNode(child))
+            } else{
+            element.appendChild(child);
+            }
+        })
+    }
     return element;  
 }
 
 
-const container = genarateElement('div', {class: 'container'});
+const container = generateElement('div', {class: 'container'});
 
-function generateCart (name, age){
-const cart = document.createElement('div');
-cart.classList.add('cart');
+function genrateCart (name, age){
 
-const nameEl = document.createElement('span');
-nameEl.innerText = `name: ${name}`;
+    const cart = generateElement(
+        'div',{
+            class: 'cart'
+        },
+        generateElement('span', null, `name: ${name}`),
+        generateElement('span', null, `age: ${age}` )); 
 
-const ageEl = document.createElement('span');
-ageEl.innerText = `age: ${age}`;
 
-cart.appendChild(nameEl);
-cart.appendChild(ageEl);
+
+// const cart = document.createElement('div');
+// cart.classList.add('cart');
+
+// const nameEl = document.createElement('span');
+// nameEl.innerText = `name: ${name}`;
+
+// const ageEl = document.createElement('span');
+// ageEl.innerText = `age: ${age}`;
+
+// cart.appendChild(nameEl);
+// cart.appendChild(ageEl);
 
 return cart;
 }
@@ -35,20 +55,10 @@ const userData = [
 ];
 
 userData.forEach(data =>{
-    container.appendChild(generateCart(data.name, data.age));
+    container.appendChild(genrateCart(data.name, data.age));
 })
 
 
 
 document.body.appendChild(container);
 
-
-
-
-
-try {
-    console.loge("aaaaaaaaaaaaaaaaaaaahtfryexhgfcdxhfcrye");
-    
-} catch (error) {
-    console.error("error thrown")
-}
