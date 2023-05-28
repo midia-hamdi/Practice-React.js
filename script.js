@@ -29,24 +29,14 @@ function genrateCart (name, age){
             class: 'cart'
         },
         generateElement('span', null, `name: ${name}`),
-        generateElement('span', null, `age: ${age}` )); 
+        generateElement('span', null, `age: ${age}` ));     
 
+        return cart;
+    }
 
-
-// const cart = document.createElement('div');
-// cart.classList.add('cart');
-
-// const nameEl = document.createElement('span');
-// nameEl.innerText = `name: ${name}`;
-
-// const ageEl = document.createElement('span');
-// ageEl.innerText = `age: ${age}`;
-
-// cart.appendChild(nameEl);
-// cart.appendChild(ageEl);
-
-return cart;
-}
+    function render (root, child){
+        root.appendChild(child);
+    }
 
 const userData = [
     {name: 'midia', age: 22},
@@ -58,7 +48,6 @@ userData.forEach(data =>{
     container.appendChild(genrateCart(data.name, data.age));
 })
 
+render(document.body, container);
 
-
-document.body.appendChild(container);
 
